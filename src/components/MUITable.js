@@ -21,10 +21,8 @@ export default function MUITable({ data }) {
   const [sortedColumn, setSortedColumn] = useState("Badges");
 
   const columnsToExclude = [
-    "Email address",
     "Timestamp",
-    ,
-    "Phone No",
+    "Phone_No",
     "Email",
   ];
 
