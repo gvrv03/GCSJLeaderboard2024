@@ -1,7 +1,6 @@
 // pages/index.js
 "use client";
 import { useState, useEffect } from "react";
-import Table from "./Table";
 import MUITable from "./MUITable";
 import { CircularProgress, Box, Typography } from "@mui/material"; // Import CircularProgress and Box
 

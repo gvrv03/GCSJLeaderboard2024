@@ -20,11 +20,7 @@ export default function MUITable({ data }) {
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortedColumn, setSortedColumn] = useState("Badges");
 
-  const columnsToExclude = [
-    "Timestamp",
-    "Phone_No",
-    "Email",
-  ];
+  const columnsToExclude = ["Timestamp", "Phone_No", "Email"];
 
   if (!data || data.length === 0) {
     return (
@@ -84,16 +80,17 @@ export default function MUITable({ data }) {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              <TableCell
-                className=" md:text-xs text-[10px]"
+              {/* <TableCell
+                className=" "
                 sx={{
                   fontWeight: "bold",
                   color: "#1976d2",
                   backgroundColor: "#e3f2fd",
+                  fontSize: "10px",
                 }}
               >
-                SrNo
-              </TableCell>
+                Sr_No
+              </TableCell> */}
               {headers.map((column) => {
                 return (
                   <TableCell
@@ -103,7 +100,8 @@ export default function MUITable({ data }) {
                       fontWeight: "bold",
                       backgroundColor: "#e3f2fd",
                       color: "#1976d2",
-                      width:" 100%",
+                      width: " 100%",
+                      fontSize: "10px",
                     }}
                   >
                     {column}
@@ -122,22 +120,18 @@ export default function MUITable({ data }) {
                   transition: "background-color 0.3s ease",
                 }}
               >
-                <TableCell className=" md:text-xs text-[10px]">
-                  {rowIndex + 1}
-                </TableCell>
+                {/* <TableCell className=" ">{rowIndex + 1}</TableCell> */}
 
                 {headers.map((header) => {
                   return (
                     <TableCell
-                      className=" md:text-xs text-[10px]"
+                      className=" "
+                      sx={{
+                        fontSize: "10px",
+                      }}
                       key={`${rowIndex}-${header}`}
                     >
-                      {header == "Name" ? (
-                        <div className="flex gap-2 items-center ">
-                          <PersonIcon />
-                          <p>{row[header]}</p>{" "}
-                        </div>
-                      ) : header == "Profile_URL" ? (
+                      { header == "Profile_URL" ? (
                         <Link
                           href={row[header]}
                           u
