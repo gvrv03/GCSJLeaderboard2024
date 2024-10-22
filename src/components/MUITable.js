@@ -56,11 +56,12 @@ export default function MUITable({ data }) {
     <Paper
       sx={{
         padding: "10px",
-        backgroundColor: "#f9fafb",
-        boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+        // backgroundColor: "#f9fafb",
+        // boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         borderRadius: 3,
         width: "100%",
       }}
+      className="container m-auto"
     >
       <Box sx={{ display: "flex", alignItems: "center"}}>
         <TextField
@@ -70,19 +71,22 @@ export default function MUITable({ data }) {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           sx={{
-            marginBottom: "16px",
+            outline:"none",
+            // marginBottom: "16px",
             backgroundColor: "white",
             borderRadius: 1,
           }}
+          className=""
         />
       </Box>
-      <TableContainer sx={{ maxHeight: 650,marginTop:"-5px" }}>
+      <TableContainer sx={{ maxHeight: 650,marginTop:"10px"}}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
               {headers.map((column) => {
                 return (
                   <TableCell
+                    className=" md:text-xs  text-[10px]"
                     key={column}
                     sx={{
                       fontWeight: "bold",
@@ -108,6 +112,7 @@ export default function MUITable({ data }) {
                   transition: "background-color 0.3s ease",
                 }}
               >
+                {/* <TableCell className=" ">{rowIndex + 1}</TableCell> */}
 
                 {headers.map((header) => {
                   return (

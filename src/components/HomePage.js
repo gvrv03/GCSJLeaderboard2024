@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import MUITable from "./MUITable";
 import { CircularProgress, Box, Typography } from "@mui/material"; // Import CircularProgress and Box
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function HomePage() {
   const [data, setData] = useState([]);
@@ -47,20 +48,7 @@ export default function HomePage() {
   if (loading) {
     // Full-screen loading spinner
     return (
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-          backgroundColor: "#f9fafb", // Optional: Match the background color of the app
-        }}
-      >
-        <CircularProgress />
-        <Typography variant="h6" sx={{ marginLeft: 2 }}>
-          Loading...
-        </Typography>
-      </Box>
+      <LoadingSpinner/>
     );
   }
 
@@ -71,7 +59,8 @@ export default function HomePage() {
   console.log(data);
   
   return (
-    <div className="container m-auto flex">
+    <div className="container m-auto flex gap-5">
+      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <MUITable data={data} />
     </div>
   );
