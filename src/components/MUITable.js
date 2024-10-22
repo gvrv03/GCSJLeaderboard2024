@@ -55,14 +55,14 @@ export default function MUITable({ data }) {
   return (
     <Paper
       sx={{
-        padding: "24px",
+        padding: "10px",
         backgroundColor: "#f9fafb",
         boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         borderRadius: 3,
         width: "100%",
       }}
     >
-      <Box sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}>
+      <Box sx={{ display: "flex", alignItems: "center"}}>
         <TextField
           label="Search"
           variant="outlined"
@@ -76,32 +76,20 @@ export default function MUITable({ data }) {
           }}
         />
       </Box>
-      <TableContainer sx={{ maxHeight: 600 }}>
+      <TableContainer sx={{ maxHeight: 650,marginTop:"-5px" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              {/* <TableCell
-                className=" "
-                sx={{
-                  fontWeight: "bold",
-                  color: "#1976d2",
-                  backgroundColor: "#e3f2fd",
-                  fontSize: "10px",
-                }}
-              >
-                Sr_No
-              </TableCell> */}
               {headers.map((column) => {
                 return (
                   <TableCell
-                    className=" md:text-xs  text-[10px]"
                     key={column}
                     sx={{
                       fontWeight: "bold",
                       backgroundColor: "#e3f2fd",
                       color: "#1976d2",
                       width: " 100%",
-                      fontSize: "10px",
+                      fontSize: "13px",
                     }}
                   >
                     {column}
@@ -120,22 +108,21 @@ export default function MUITable({ data }) {
                   transition: "background-color 0.3s ease",
                 }}
               >
-                {/* <TableCell className=" ">{rowIndex + 1}</TableCell> */}
 
                 {headers.map((header) => {
                   return (
                     <TableCell
                       className=" "
                       sx={{
-                        fontSize: "10px",
+                        fontSize: "13px",
                       }}
                       key={`${rowIndex}-${header}`}
                     >
                       { header == "Profile_URL" ? (
                         <Link
                           href={row[header]}
-                          u
-                          className=" bg-blue-50 text-center font-semibold text-[8px] p-2 rounded-full "
+                          
+                          className=" bg-blue-50 text-center font-semibold text-[10px] p-3 rounded-full "
                           target="_blank"
                         >
                           Profile

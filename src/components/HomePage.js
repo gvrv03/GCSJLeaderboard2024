@@ -71,8 +71,7 @@ export default function HomePage() {
   console.log(data);
   
   return (
-    <div className="container m-auto flex gap-5">
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
+    <div className="container m-auto flex">
       <MUITable data={data} />
     </div>
   );
