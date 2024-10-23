@@ -56,7 +56,6 @@ export default function HomePage() {
     return <p>Error: {error}</p>;
   }
 
-  console.log(data);
   
   return (
     <div className="container m-auto flex gap-5">

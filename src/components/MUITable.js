@@ -18,7 +18,8 @@ import PersonIcon from "@mui/icons-material/Person";
 export default function MUITable({ data }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("desc");
-  const [sortedColumn, setSortedColumn] = useState("Badges");
+  const [sortedColumn, setSortedColumn] = useState("Badge");
+console.log(data);
 
   const columnsToExclude = ["Timestamp", "Phone_No", "Email"];
 
@@ -56,14 +57,11 @@ export default function MUITable({ data }) {
     <Paper
       sx={{
         padding: "10px",
-        // backgroundColor: "#f9fafb",
-        // boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
         borderRadius: 3,
-        width: "100%",
       }}
       className="container m-auto"
     >
-      <Box sx={{ display: "flex", alignItems: "center"}}>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
         <TextField
           label="Search"
           variant="outlined"
@@ -71,15 +69,14 @@ export default function MUITable({ data }) {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           sx={{
-            outline:"none",
-            // marginBottom: "16px",
+            outline: "none",
             backgroundColor: "white",
             borderRadius: 1,
+            fontSize: "12px",
           }}
-          className=""
         />
       </Box>
-      <TableContainer sx={{ maxHeight: 650,marginTop:"10px"}}>
+      <TableContainer sx={{ maxHeight: 650, marginTop: "10px" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -94,6 +91,7 @@ export default function MUITable({ data }) {
                       color: "#1976d2",
                       width: " 100%",
                       fontSize: "13px",
+                      padding: "15px 8px",
                     }}
                   >
                     {column}
@@ -117,17 +115,16 @@ export default function MUITable({ data }) {
                 {headers.map((header) => {
                   return (
                     <TableCell
-                      className=" "
                       sx={{
+                        padding: "15px 8px",
                         fontSize: "13px",
                       }}
                       key={`${rowIndex}-${header}`}
                     >
-                      { header == "Profile_URL" ? (
+                      {header == "Profile" ? (
                         <Link
                           href={row[header]}
-                          
-                          className=" bg-blue-50 text-center font-semibold text-[10px] p-3 rounded-full "
+                          className=" bg-blue-50 text-center font-semibold text-[10px] p-3 rounded-md "
                           target="_blank"
                         >
                           Profile
