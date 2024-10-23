@@ -12,12 +12,13 @@ import SortIcon from "@mui/icons-material/Sort";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+import Completion from "./Completion";
 
 export default function MUITable({ data }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortedColumn, setSortedColumn] = useState("Badge");
-console.log(data);
+  console.log(data);
 
   const columnsToExclude = ["Timestamp", "Phone_No", "Email"];
 
@@ -55,14 +56,15 @@ console.log(data);
     <Paper
       sx={{
         padding: "10px",
+        boxShadow: "none",
         borderRadius: 3,
       }}
-      className="container m-auto"
+      className="container m-auto border  border-gray-200 "
     >
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box  className="flex gap-2 items-center justify-center "  >
         <TextField
           label="Search"
-          variant="outlined"
+          // variant="outlined"
           fullWidth
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -73,23 +75,24 @@ console.log(data);
             fontSize: "12px",
           }}
         />
+        <Completion />
       </Box>
       <TableContainer sx={{ maxHeight: 650, marginTop: "10px" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-            <TableCell
-                    className=" md:text-xs  text-[10px]"
-                    sx={{
-                      fontWeight: "bold",
-                      backgroundColor: "#e3f2fd",
-                      color: "#1976d2",
-                      fontSize: "13px",
-                      padding: "15px 8px",
-                    }}
-                  >
-                    SN
-                  </TableCell>
+              <TableCell
+                className=" md:text-xs  text-[10px]"
+                sx={{
+                  fontWeight: "bold",
+                  backgroundColor: "#e3f2fd",
+                  color: "#1976d2",
+                  fontSize: "13px",
+                  padding: "15px 8px",
+                }}
+              >
+                SN
+              </TableCell>
               {headers.map((column) => {
                 return (
                   <TableCell
@@ -124,7 +127,7 @@ console.log(data);
                 {headers.map((header) => {
                   return (
                     <TableCell
-                    className="uppercase"
+                      className="uppercase"
                       sx={{
                         padding: "15px 8px",
                         fontSize: "13px",

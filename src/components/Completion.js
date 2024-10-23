@@ -3,8 +3,8 @@ import React from "react";
 
 const Completion = () => {
   return (
-    <section className="fixed  flex-col flex w-full md:w-auto md:bottom-auto bottom-0 items-center md:top-20 md:right-5 rounded-t-md md:rounded-md  bg-blue-500 text-white">
-      <div className=" px-5 py-2  flex gap-2 items-center" >
+    <section className="fixed md:relative md:py-1 flex-col flex w-full md:w-[30%]  md:bottom-auto  md:bg-auto bottom-0 items-center md:top-0  rounded-t-md md:rounded-md  bg-blue-500 text-white">
+      <div className=" px-5 py-2 font-semibold  flex gap-2 items-center" >
         <i className="uil uil-file-info-alt text-2xl" />
         <Link href="https://forms.gle/UtkhQDjeR5gk7K7HA" target="_blank" >Fill Course Completion Form</Link>
       </div>
