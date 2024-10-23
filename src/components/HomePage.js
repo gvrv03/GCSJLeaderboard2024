@@ -12,7 +12,8 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const googleSheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=594514810&single=true&output=tsv";
+      const googleSheetUrl =
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=594514810&single=true&output=tsv";
 
       try {
         const response = await fetch(googleSheetUrl);
@@ -34,7 +35,7 @@ export default function HomePage() {
           return entry;
         });
 
-        setData(jsonData); 
+        setData(jsonData);
         setLoading(false); // Turn off loading once the data is fetched
       } catch (err) {
         setError(err.message); // Catch any errors
@@ -43,12 +44,14 @@ export default function HomePage() {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   if (loading) {
     // Full-screen loading spinner
     return (
-      <LoadingSpinner/>
+      <div className="h-screen">
+        <LoadingSpinner />
+      </div>
     );
   }
 
@@ -56,7 +59,6 @@ export default function HomePage() {
     return <p>Error: {error}</p>;
   }
 
-  
   return (
     <div className="container m-auto flex gap-5">
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}

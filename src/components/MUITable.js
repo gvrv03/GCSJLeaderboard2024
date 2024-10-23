@@ -8,13 +8,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import SortIcon from "@mui/icons-material/Sort";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 
-import PersonIcon from "@mui/icons-material/Person";
 export default function MUITable({ data }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("desc");
@@ -80,6 +78,18 @@ console.log(data);
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
+            <TableCell
+                    className=" md:text-xs  text-[10px]"
+                    sx={{
+                      fontWeight: "bold",
+                      backgroundColor: "#e3f2fd",
+                      color: "#1976d2",
+                      fontSize: "13px",
+                      padding: "15px 8px",
+                    }}
+                  >
+                    SN
+                  </TableCell>
               {headers.map((column) => {
                 return (
                   <TableCell
@@ -110,8 +120,7 @@ console.log(data);
                   transition: "background-color 0.3s ease",
                 }}
               >
-                {/* <TableCell className=" ">{rowIndex + 1}</TableCell> */}
-
+                <TableCell className=" ">{rowIndex + 1}</TableCell>
                 {headers.map((header) => {
                   return (
                     <TableCell
