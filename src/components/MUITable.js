@@ -93,7 +93,7 @@ console.log(data);
               {headers.map((column) => {
                 return (
                   <TableCell
-                    className=" md:text-xs  text-[10px]"
+                    className=" md:text-xs uppercase  text-[10px]"
                     key={column}
                     sx={{
                       fontWeight: "bold",
@@ -124,6 +124,7 @@ console.log(data);
                 {headers.map((header) => {
                   return (
                     <TableCell
+                    className="uppercase"
                       sx={{
                         padding: "15px 8px",
                         fontSize: "13px",
