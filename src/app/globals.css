@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.neon-blue {
+    box-shadow: 0 0 10px rgba(134, 211, 255, 0.8), 0 0 40px rgba(0, 162, 255, 0.6), 0 0 80px rgba(0, 162, 255, 0.5);
+  }
+  
+  .neon-blue:hover {
+    box-shadow: 0 0 20px rgb(63, 185, 255), 0 0 50px rgba(0, 162, 255, 0.8), 0 0 100px rgba(0, 162, 255, 0.7);
+  }

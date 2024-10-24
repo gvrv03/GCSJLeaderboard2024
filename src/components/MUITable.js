@@ -14,13 +14,12 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import Completion from "./Completion";
 
-export default function MUITable({ data }) {
+export default function MUITable({ data, complform }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortedColumn, setSortedColumn] = useState("Badge");
-  console.log(data);
 
-  const columnsToExclude = ["Timestamp", "Phone_No", "Email"];
+  const columnsToExclude = ["Timestamp", "Phone_No", "Email","Extra"];
 
   if (!data || data.length === 0) {
     return (
@@ -61,7 +60,7 @@ export default function MUITable({ data }) {
       }}
       className="container m-auto border  border-gray-200 "
     >
-      <Box  className="flex gap-2 items-center justify-center "  >
+      <Box className="flex gap-2 items-center justify-center ">
         <TextField
           label="Search"
           // variant="outlined"
@@ -75,7 +74,7 @@ export default function MUITable({ data }) {
             fontSize: "12px",
           }}
         />
-        <Completion />
+        {complform && <Completion />}
       </Box>
       <TableContainer sx={{ maxHeight: 650, marginTop: "10px" }}>
         <Table stickyHeader aria-label="sticky table">
@@ -125,6 +124,7 @@ export default function MUITable({ data }) {
               >
                 <TableCell className=" ">{rowIndex + 1}</TableCell>
                 {headers.map((header) => {
+                  
                   return (
                     <TableCell
                       className="uppercase"
@@ -134,7 +134,15 @@ export default function MUITable({ data }) {
                       }}
                       key={`${rowIndex}-${header}`}
                     >
-                      {header == "Profile" ? (
+                      {header == "Link" ? (
+                        <Link
+                          href={row[header]}
+                          className=" bg-blue-50 text-center font-semibold text-[10px] p-3 rounded-md "
+                          target="_blank"
+                        >
+                          Visit
+                        </Link>
+                      ) : header == "Profile" ? (
                         <Link
                           href={row[header]}
                           className=" bg-blue-50 text-center font-semibold text-[10px] p-3 rounded-md "
@@ -142,8 +150,6 @@ export default function MUITable({ data }) {
                         >
                           Profile
                         </Link>
-                      ) : header != "Name" ? (
-                        <div className="text-center">{row[header]}</div>
                       ) : (
                         row[header]
                       )}

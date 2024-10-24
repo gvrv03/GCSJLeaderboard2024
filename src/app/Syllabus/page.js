@@ -1,19 +1,18 @@
 // pages/index.js
 "use client";
 import { useState, useEffect } from "react";
-import MUITable from "./MUITable";
 import { CircularProgress, Box, Typography } from "@mui/material"; // Import CircularProgress and Box
-import LoadingSpinner from "./LoadingSpinner";
+import MUITable from "@/components/MUITable";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
-export default function HomePage() {
+export default function Syllabus() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const googleSheetUrl =
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=594514810&single=true&output=tsv";
+      const googleSheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=1660305668&single=true&output=tsv";
 
       try {
         const response = await fetch(googleSheetUrl);
@@ -62,7 +61,7 @@ export default function HomePage() {
   return (
     <div className="container m-auto flex gap-5">
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <MUITable data={data} />
+      <MUITable data={data} complform={false} />
     </div>
   );
 }
