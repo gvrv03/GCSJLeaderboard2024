@@ -7,7 +7,7 @@ export default function Home() {
 
       <div className="flex md:flex-row flex-col gap-2 w-full md:w-auto">
         <Link href="/Syllabus" className="p-5 border  rounded-md w-full  font-semibold text-center border-blue-700 hover:bg-blue-600 transition-all delay-75 shadow-md md:w-96  text-white bg-blue-500" >Syllabus</Link>
-        <Link href="/" className="p-5 border  rounded-md w-full  font-semibold text-center border-blue-700 hover:bg-blue-600 transition-all delay-75 shadow-md md:w-96  text-white bg-blue-500" >Resources</Link>
+        <Link href="/Resources" className="p-5 border  rounded-md w-full  font-semibold text-center border-blue-700 hover:bg-blue-600 transition-all delay-75 shadow-md md:w-96  text-white bg-blue-500" >Resources</Link>
       </div>
     </section>
   );

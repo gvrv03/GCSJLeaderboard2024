@@ -19,7 +19,7 @@ export default function MUITable({ data, complform }) {
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortedColumn, setSortedColumn] = useState("Badge");
 
-  const columnsToExclude = ["Timestamp", "Phone_No", "Email","Extra"];
+  const columnsToExclude = ["Timestamp", "Phone_No", "Email", "Extra"];
 
   if (!data || data.length === 0) {
     return (
@@ -124,7 +124,6 @@ export default function MUITable({ data, complform }) {
               >
                 <TableCell className=" ">{rowIndex + 1}</TableCell>
                 {headers.map((header) => {
-                  
                   return (
                     <TableCell
                       className="uppercase"
@@ -149,6 +148,22 @@ export default function MUITable({ data, complform }) {
                           target="_blank"
                         >
                           Profile
+                        </Link>
+                      ) : header == "Lab_URL" ? (
+                        <Link
+                          href={row[header]}
+                          className=" bg-blue-50 text-center font-semibold text-[10px] p-3 rounded-md "
+                          target="_blank"
+                        >
+                          Open_Lab
+                        </Link>
+                      ) : header == "YouTube_Link" ? (
+                        <Link
+                          href={row[header]}
+                          className=" bg-red-100 to-red-500 text-center font-semibold text-[10px] p-3 rounded-md "
+                          target="_blank"
+                        >
+                          Youtube
                         </Link>
                       ) : (
                         row[header]
