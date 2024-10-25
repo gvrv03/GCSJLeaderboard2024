@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import MUITable from "@/components/MUITable";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import Support from "@/components/Support";
 
 export default function Resources() {
   const [data, setData] = useState([]);
@@ -61,6 +62,7 @@ export default function Resources() {
     <div className="container m-auto flex gap-5">
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       <MUITable data={data} complform={false} />
+      <Support/>
     </div>
   );
 }
