@@ -62,7 +62,7 @@ export default function Leaderboard() {
   return (
     <div className="container m-auto flex gap-5">
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <MUITable data={data}  complform={true} />
+      <MUITable data={data} tableHeight={560}  complform={true} />
     </div>
   );
 }

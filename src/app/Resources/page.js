@@ -61,7 +61,7 @@ export default function Resources() {
   return (
     <div className="container m-auto flex gap-5">
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <MUITable data={data} complform={false} />
+      <MUITable data={data}  tableHeight={600} complform={false} />
       <Support/>
     </div>
   );

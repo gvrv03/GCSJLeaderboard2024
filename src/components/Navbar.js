@@ -25,13 +25,12 @@ const Navbar = () => {
   const router = useRouter();
   return (
     <header
-      className={`grid place-items-center  transition-all duration-300 ${
-        isSticky ? "fixed top-0 left-0 w-full bg-white z-50" : ""
+      className={`grid place-items-center  transition-all duration-300 fixed top-0 left-0 w-full bg-white z-50 
       }`}
     >
       <div className="flex gap-5 items-center justify-center py-3 text-white bg-gray-900 w-full">
         <img src="/cloud.png" className="md:w-8 w-5 " />
-        <p className="font-semibold text-sm md:text-lg">
+        <p className="font-semibold text-sm md:text-base">
           Google Cloud Study Jam 2024-25{" "}
         </p>
       </div>

@@ -46,10 +46,10 @@ export default function RootLayout({ children }) {
           href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
         />
       </head>
-      <body className="bg-white">
+
+      <body className="bg-white pyro">
         <Navbar />
-        {children}
-        <Footer />
+        <div className=" mt-[120px] md:mt-36" >{children}</div> <Footer />
       </body>
     </html>
   );

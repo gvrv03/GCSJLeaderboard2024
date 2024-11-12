@@ -13,14 +13,21 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import Completion from "./Completion";
+import Image from "next/image";
 
-export default function MUITable({ data, complform }) {
+export default function MUITable({ data, complform,tableHeight }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortedColumn, setSortedColumn] = useState("Badge");
 
-  const columnsToExclude = ["Timestamp", "Phone_No", "Email", "Extra"];
-
+  const columnsToExclude = [
+    "Timestamp",
+    "Phone_No",
+    "Email",
+    "Extra",
+    "Badges",
+    "Arcade"
+  ];
   if (!data || data.length === 0) {
     return (
       <Typography variant="h6" textAlign="center" sx={{ marginTop: 4 }}>
@@ -58,7 +65,7 @@ export default function MUITable({ data, complform }) {
         boxShadow: "none",
         borderRadius: 3,
       }}
-      className="container m-auto border  border-gray-200 "
+      className="container m-auto md:border   border-gray-200 "
     >
       <Box className="flex gap-2 items-center justify-center ">
         <TextField
@@ -76,7 +83,7 @@ export default function MUITable({ data, complform }) {
         />
         {complform && <Completion />}
       </Box>
-      <TableContainer sx={{ maxHeight: 650, marginTop: "10px" }}>
+      <TableContainer sx={{ maxHeight: tableHeight, marginTop: "10px" }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -165,6 +172,11 @@ export default function MUITable({ data, complform }) {
                         >
                           Youtube
                         </Link>
+                      ) : header == "Name" ? (
+                        <div className="flex gap-2">
+                          <Image src="/badge.png" className="w-4 h-4"  width={10} height={10} />
+                          <p  >{row[header]}</p>{" "}
+                        </div>
                       ) : (
                         row[header]
                       )}

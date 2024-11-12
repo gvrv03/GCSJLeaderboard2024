@@ -4,15 +4,17 @@ import { useState, useEffect } from "react";
 import { CircularProgress, Box, Typography } from "@mui/material"; // Import CircularProgress and Box
 import MUITable from "@/components/MUITable";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import Statistics from "@/components/Statistics";
 
-export default function Syllabus() {
+export default function CompletedStudents() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const googleSheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=1660305668&single=true&output=tsv";
+      const googleSheetUrl =
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=479255623&single=true&output=tsv";
 
       try {
         const response = await fetch(googleSheetUrl);
@@ -59,9 +61,9 @@ export default function Syllabus() {
   }
 
   return (
-    <div className="container m-auto flex gap-5">
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      <MUITable data={data}  tableHeight={600} complform={false} />
+    <div className="container   m-auto flex  flex-col gap-5">
+      <Statistics />
+      <MUITable data={data} tableHeight={513} complform={false} />
     </div>
   );
 }
