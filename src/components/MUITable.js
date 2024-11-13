@@ -25,7 +25,6 @@ export default function MUITable({ data, complform,tableHeight }) {
     "Phone_No",
     "Email",
     "Extra",
-    "Badges",
     "Arcade"
   ];
   if (!data || data.length === 0) {
@@ -151,7 +150,7 @@ export default function MUITable({ data, complform,tableHeight }) {
                       ) : header == "Profile" ? (
                         <Link
                           href={row[header]}
-                          className=" bg-blue-50 text-center font-semibold text-[10px] p-3 rounded-md "
+                          className=" bg-yellow-50 border border-yellow-200 text-center font-semibold text-[9px] p-3 rounded-md "
                           target="_blank"
                         >
                           Profile

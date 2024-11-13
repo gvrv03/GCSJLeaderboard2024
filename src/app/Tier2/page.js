@@ -61,9 +61,9 @@ export default function CompletedStudents() {
   }
 
   return (
-    <div className="container   m-auto flex  flex-col gap-5">
-      <Statistics />
-      <MUITable data={data} tableHeight={513} complform={false} />
+    <div className="container   m-auto flex  flex-col md:gap-5 gap-0">
+      <Statistics  visible="" />
+      <MUITable data={data} tableHeight={695} complform={false} />
     </div>
   );
 }
