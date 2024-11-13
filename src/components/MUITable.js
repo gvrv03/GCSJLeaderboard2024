@@ -137,7 +137,6 @@ export default function MUITable({ data, complform,tableHeight }) {
                       sx={{
                         padding: "15px 8px",
                         fontSize: "12px",
-                        textAlign:"center"
                       }}
                       key={`${rowIndex}-${header}`}
                     >
