@@ -9,7 +9,7 @@ const Statistics = ({visible}) => {
           <p className="text-[10px] md:text-sm font-medium">
             Eligible Participants for swags
           </p>
-          <p className="   text-sm md:text-2xl font-bold">60</p>
+          <p className="   text-sm md:text-2xl font-bold">80</p>
         </div>
         <div className="bg-blue-100  border border-blue-200 text-blue-600 rounded-md p-4 shadow-md text-center w-full">
           <p className="text-[10px] md:text-sm font-medium">
