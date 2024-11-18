@@ -14,7 +14,7 @@ export default function CompletedStudents() {
   useEffect(() => {
     const fetchData = async () => {
       const googleSheetUrl =
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=479255623&single=true&output=tsv";
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb7BabzcJ8SeaGga_1ukZQRxeM10NDc0x-L2pCB1VdmoYw--Kw0usTyMU3YmoLjNS3B1qOolibWExR/pub?gid=1546296943&single=true&output=tsv";
 
       try {
         const response = await fetch(googleSheetUrl);
