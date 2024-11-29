@@ -134,7 +134,43 @@ const SizeChartModal = ({ onClose }) => {
               </th>
             </tr>
           </thead>
-          <tbody>{/* Add rows for size chart */}</tbody>
+          <tbody>
+            <tr>
+              <td className=" text-left py-2 border-b border-gray-300">XS</td>
+              <td className="py-2 border-b text-center border-gray-300">36</td>
+              <td className="py-2 border-b text-right border-gray-300">25</td>
+            </tr>
+            <tr>
+              <td className=" text-left py-2 border-b border-gray-300">S</td>
+              <td className="py-2 border-b text-center border-gray-300">38</td>
+              <td className="py-2 border-b text-right border-gray-300">26.5</td>
+            </tr>
+            <tr>
+              <td className=" text-left py-2 border-b border-gray-300">M</td>
+              <td className="py-2 border-b text-center border-gray-300">40</td>
+              <td className="py-2 border-b text-right border-gray-300">27.5</td>
+            </tr>
+            <tr>
+              <td className=" text-left py-2 border-b border-gray-300">L</td>
+              <td className="py-2 border-b text-center border-gray-300">42</td>
+              <td className="py-2 border-b text-right border-gray-300">28.5</td>
+            </tr>
+            <tr>
+              <td className=" text-left py-2 border-b border-gray-300">XL</td>
+              <td className="py-2 border-b text-center border-gray-300">44</td>
+              <td className="py-2 border-b text-right border-gray-300">29.5</td>
+            </tr>
+            <tr>
+              <td className=" text-left py-2 border-b border-gray-300">2XL</td>
+              <td className="py-2 border-b text-center border-gray-300">46</td>
+              <td className="py-2 border-b text-right border-gray-300">30.5</td>
+            </tr>
+            <tr>
+              <td className=" text-left py-2 border-b border-gray-300">3XL</td>
+              <td className="py-2 border-b text-center border-gray-300">48</td>
+              <td className="py-2 border-b text-right border-gray-300">31.5</td>
+            </tr>
+          </tbody>
         </table>
         <button
           onClick={onClose}
