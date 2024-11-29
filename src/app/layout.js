@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "GDGC, GCOEN",
@@ -49,7 +50,8 @@ export default function RootLayout({ children }) {
 
       <body className="bg-white pyro">
         <Navbar />
-        <div className=" mt-[120px] md:mt-36" >{children}</div> <Footer />
+        <Toaster position="bottom-center" reverseOrder={false} />
+        <div className=" mt-[120px] md:mt-36">{children}</div> <Footer />
       </body>
     </html>
   );
