@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import LoadingSpinner from "./LoadingSpinner";
 import { CircularProgress } from "@mui/material";
+import { Query } from "appwrite";
 
 const TshirtCollect = ({ data }) => {
   const [studentName, setStudentName] = useState("NA");
@@ -25,26 +26,48 @@ const TshirtCollect = ({ data }) => {
       toast.error("Please select both student name and t-shirt size.");
       return;
     }
-
     try {
-      // Data to be added
-      const documentData = {
-        Student_Name: studentName,
-        Tshirt_Size: tshirtSize,
-      };
-
-      const response = await AppwriteDatabase.createDocument(
+      // Check if the student name already exists
+      const existingDocuments = await AppwriteDatabase.listDocuments(
         GDGCDatabase,
         TshirtSizeCollection,
-        ID.unique(),
-        documentData
+        [
+          Query.equal("Student_Name", studentName), // Query by studentName field
+        ]
       );
 
-      toast.success("Data submitted successfully!");
+      if (existingDocuments.total > 0) {
+        const documentId = existingDocuments.documents[0].$id;
+        const response = await AppwriteDatabase.updateDocument(
+          GDGCDatabase,
+          TshirtSizeCollection,
+          documentId,
+          {
+            Tshirt_Size: tshirtSize, // Update only the T-shirt size
+          }
+        );
+
+        toast.success("Data updated successfully!");
+      } else {
+        // If no document exists, create a new one
+        const documentData = {
+          Student_Name: studentName,
+          Tshirt_Size: tshirtSize,
+        };
+
+        const response = await AppwriteDatabase.createDocument(
+          GDGCDatabase,
+          TshirtSizeCollection,
+          ID.unique(),
+          documentData
+        );
+
+        toast.success("Data submitted successfully!");
+      }
     } catch (e) {
       toast.error("An error occurred while submitting the data.");
     } finally {
-      setloading(false);
+      setloading(false); // End loading
     }
   };
 
@@ -182,5 +205,6 @@ const SizeChartModal = ({ onClose }) => {
     </div>
   );
 };
+
 
 export default TshirtCollect;
