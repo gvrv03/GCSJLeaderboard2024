@@ -51,7 +51,8 @@ export default function RootLayout({ children }) {
       <body className="bg-white pyro">
         <Navbar />
         <Toaster position="bottom-center" reverseOrder={false} />
-        <div className=" mt-[120px] md:mt-36">{children}</div> <Footer />
+        <div className=" mt-[120px] md:mt-36">{children}</div>
+        {/* <Footer /> */}
       </body>
     </html>
   );

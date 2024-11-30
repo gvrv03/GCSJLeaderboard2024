@@ -6,12 +6,16 @@ import Image from "next/image";
 
 export default function CollectTShirtSize() {
   return (
-    <div className="container   m-auto flex  flex-col md:gap-5 gap-0">
-      
-      <img  loading="lazy" className="  border rounded-md w-full h-full" src="/Rewards.jpeg" />
-      {/* <img  loading="lazy" className="  border rounded-md w-full h-full" src="/SizeChart.jpeg" /> */}
-      <Statistics visible="" />
-      <TshirtCollect data={StuData} />
+    <div className="container   m-auto flex  flex-col md:flex-row md:gap-5 gap-0">
+      <img
+        loading="lazy"
+        className="  border rounded-md w-full h-full"
+        src="/Rewards.jpeg"
+      />
+      <div className="flex gap-5 md:w-[50%] flex-col" >
+        <Statistics visible="" />
+        <TshirtCollect data={StuData} />
+      </div>{" "}
     </div>
   );
 }

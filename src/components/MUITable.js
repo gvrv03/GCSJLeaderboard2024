@@ -15,7 +15,7 @@ import Link from "next/link";
 import Completion from "./Completion";
 import Image from "next/image";
 
-export default function MUITable({ data, complform,tableHeight }) {
+export default function MUITable({ data, complform, tableHeight }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("desc");
   const [sortedColumn, setSortedColumn] = useState("Badge");
@@ -25,7 +25,13 @@ export default function MUITable({ data, complform,tableHeight }) {
     "Phone_No",
     "Email",
     "Extra",
-    "Arcade"
+    "Arcade",
+    "$id",
+    "$createdAt",
+    "$databaseId",
+    "$updatedAt",
+    "$permissions",
+    "$collectionId",
   ];
   if (!data || data.length === 0) {
     return (
@@ -173,8 +179,13 @@ export default function MUITable({ data, complform,tableHeight }) {
                         </Link>
                       ) : header == "Name" ? (
                         <div className="flex gap-2">
-                          <Image src="/badge.png" className="w-4 h-4"  width={10} height={10} />
-                          <p  >{row[header]}</p>{" "}
+                          <Image
+                            src="/badge.png"
+                            className="w-4 h-4"
+                            width={10}
+                            height={10}
+                          />
+                          <p>{row[header]}</p>{" "}
                         </div>
                       ) : (
                         row[header]
