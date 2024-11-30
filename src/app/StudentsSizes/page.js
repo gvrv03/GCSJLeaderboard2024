@@ -49,7 +49,7 @@ const StudentsSizes = () => {
 
   return (
     <div className="container m-auto flex-col flex gap-5">
-      <div className="overflow-scroll mt-5 w-full flex gap-5">
+      <div className="overflow-scroll mt-5 md:m-0 m-2 w-full flex gap-5">
         <div className="p-5 bg-blue-50  rounded-md border border-blue-200 w-full flex  items-center justify-center flex-col ">
           <p className="font-semibold text-base md:text-lg text-blue-500">
             {" "}
