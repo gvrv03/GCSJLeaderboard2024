@@ -127,7 +127,7 @@ const TshirtCollect = ({ data }) => {
       <button
         onClick={handleSubmit}
         type="submit"
-        className="bg-blue-500 p-3 px-32 text-white font-semibold uppercase"
+        className="rounded-md bg-blue-500 p-3 px-32 text-white font-semibold uppercase"
       >
         {loading ? <CircularProgress size={20} color="white" /> : "Submit"}
       </button>
