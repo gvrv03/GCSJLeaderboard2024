@@ -8,6 +8,7 @@ import {
 } from "../appwrite"; // Ensure you import the `databases` instance correctly
 
 import LoadingSpinner from "@/components/LoadingSpinner";
+import { Query } from "appwrite";
 
 const StudentsSizes = () => {
   const [data, setData] = useState([]);
@@ -19,8 +20,13 @@ const StudentsSizes = () => {
       try {
         const response = await AppwriteDatabase.listDocuments(
           GDGCDatabase,
-          TshirtSizeCollection
-        ); // Replace with your actual IDs
+          TshirtSizeCollection,
+          [
+            Query.limit(100),
+            // Query.offset(offset),
+          ]
+        );
+        console.log(response);
         setData(response.documents);
       } catch (err) {
         setError(err.message);
@@ -41,11 +47,11 @@ const StudentsSizes = () => {
   if (error) return <div>Error: {error}</div>;
 
   const sizeCounts = data.reduce((acc, item) => {
-    const size = item.Tshirt_Size; // Assuming `TshirtSize` is the key for the size
+    const size = item.Tshirt_Size;
     acc[size] = (acc[size] || 0) + 1;
     return acc;
   }, {});
-  console.log(sizeCounts);
+  console.log(data);
 
   return (
     <div className="container m-auto flex-col flex gap-5">
